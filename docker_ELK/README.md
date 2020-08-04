@@ -9,4 +9,4 @@ Repository for a complete working Elastic Stack pipeline (Logstash - Elasticsear
     - `docker-compose up --build -d`
 - You can now send logs with a Filebeat agent to `<IP>:5044`.
 
-![Docker topology](/img/topology.png)
+![Docker topology](/docker_ELK/img/topology.png)
