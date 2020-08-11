@@ -32,4 +32,4 @@ metricbeat.modules:
   enabled: true
 
 output.logstash:
-  hosts: ["192.168.1.119:5045"]
+  hosts: ["172.17.0.1:5045"]
