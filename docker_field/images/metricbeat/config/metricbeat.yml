@@ -33,3 +33,5 @@ metricbeat.modules:
 
 output.logstash:
   hosts: ["172.17.0.1:5045"]
+
+setup.ilm.overwrite: true
