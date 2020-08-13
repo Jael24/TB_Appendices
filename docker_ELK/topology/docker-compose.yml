@@ -4,39 +4,32 @@ services:
 
   elasticsearch:
     container_name: elsearch
-    build: 
-            context: ../images/elasticsearch
-            args: 
-                    elastic_version: 7.8.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:${elastic_version}
     environment:
-            discovery.type: "single-node"
+      discovery.type: "single-node"
     ports:
       - 9200:9200
       - 9300:9300
 
   kibana:
     container_name: kib
-    build:
-            context: ../images/kibana
-            args:
-                    elastic_version: 7.8.0
-    links: 
+    image: docker.elastic.co/kibana/kibana:${elastic_version}
+    links:
       - "elasticsearch"
     ports:
-     - 5601:5601
+      - 5601:5601
     depends_on:
       - elasticsearch
 
   logstash:
     container_name: logst
     build:
-            context: ../images/logstash
-            args:
-                    elastic_version: 7.8.0
+      context: ../images/logstash
+      args:
+        - elastic_version
     ports:
       - 5044:5044
       - 5045:5045
     depends_on:
       - elasticsearch
       - kibana
-
